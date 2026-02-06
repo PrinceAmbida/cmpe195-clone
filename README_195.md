@@ -6,7 +6,7 @@
 
 | Name | GitHub | Email |
 |------|--------|-------|
-| Name 1 | [@username](https://github.com/username) | name@sjsu.edu |
+| Padmavathy Elencheliyan | [@ThrawnOfAsgard](https://github.com/ThrawnOfAsgard) | padmavathy.elencheliyan@sjsu.edu |
 | Name 2 | [@username](https://github.com/username) | name@sjsu.edu |
 | Name 3 | [@username](https://github.com/username) | name@sjsu.edu |
 | Name 4 | [@username](https://github.com/username) | name@sjsu.edu |
