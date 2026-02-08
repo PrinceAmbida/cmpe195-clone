@@ -4,12 +4,12 @@
 
 ## Team
 
-| Name | GitHub | Email |
-|------|--------|-------|
+| Name                    | GitHub                                               | Email                            |
+|-------------------------|------------------------------------------------------|----------------------------------|
 | Padmavathy Elencheliyan | [@ThrawnOfAsgard](https://github.com/ThrawnOfAsgard) | padmavathy.elencheliyan@sjsu.edu |
-| Name 2 | [@username](https://github.com/username) | name@sjsu.edu |
-| Name 3 | [@username](https://github.com/username) | name@sjsu.edu |
-| Name 4 | [@username](https://github.com/username) | name@sjsu.edu |
+| Ye Yuan                 | [@liveyuanye](https://github.com/username)           | ye.yuan01@sjsu.edu               |
+| Name 3                  | [@username](https://github.com/username)             | name@sjsu.edu                    |
+| Name 4                  | [@username](https://github.com/username)             | name@sjsu.edu                    |
 
 **Advisor:** [Advisor Name]
 
