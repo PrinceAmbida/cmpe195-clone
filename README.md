@@ -1,4 +1,4 @@
-# Inside the Network: A Packet's Perspective
+# Inside the Network
 
 ## CMPE 195A - Senior Design Project I, Spring 2026
 
@@ -9,7 +9,7 @@
 
 ## Project Overview
 
-A network-themed 3D platformer game built in Unity (C#) where the player controls a data packet navigating through a smart home environment. The game teaches introductory computer networking concepts through interactive gameplay.
+A network-themed 3D platformer game built in Unity (C#) where the player controls data, which obtains/loses headers and increases/decreases in size, as it is transmitted from an IoT device to a server, demonstrating how IoT devices function in a smart home environment. The game teaches introductory computer networking concepts through interactive gameplay.
 
 ## Problem
 
