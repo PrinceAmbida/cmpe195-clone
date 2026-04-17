@@ -53,7 +53,7 @@ Objective of the game is to navigate through the maze, without colliding with wa
 
 | Component | Technology |
 |-----------|------------|
-| Game Engine | Unity |
+| Game Engine | Unity (version 2022.3.62f3) |
 | Language | C# |
 | Graphics | 3D |
 | Platform | PC |
