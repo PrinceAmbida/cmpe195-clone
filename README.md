@@ -34,7 +34,7 @@ Undergraduate students in introductory computer networking courses.
 |-----------|------------|
 | Game Engine | Unity |
 | Language | C# |
-| Graphics | 3D (fallback to 2D if needed) |
+| Graphics | 3D |
 | Platform | PC |
 
 ## Project Structure
@@ -44,8 +44,12 @@ Undergraduate students in introductory computer networking courses.
 ├── README.md
 ├── docs/
 │   └── design-document.md
-├── unity-project/       # Unity project files (TBD)
-├── assets/              # Game assets (TBD)
+├── AIChatbot/           # Code used for AI chatbot and website
+│   └── FolderInfo.md
+├── UnityGame/           # All Unity related code and projects
+│   └── LevelTemplates/  # For prototype of each basic level
+│       └── LevelInfo.md
+│       └── PresentationLayer/  # Contains prototype of phishing maze
 └── references/          # Research and reference materials
 ```
 
