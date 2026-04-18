@@ -47,7 +47,7 @@ Controls are WASD or arrow keys to move the player (cube) forward, left, backwar
 Objective of the game is to navigate through the maze, without colliding with walls.
 
 ## Demo
-[Link to demo](https://drive.google.com/file/d/1X-WRFqb0j2bj2xNkC1na61A_gTuiVYHt/view?usp=sharing)
+[Link to demo](https://drive.google.com/file/d/1Az5__vvYwxC-V8tP_LjOGEfQhd2dToCO/view?usp=sharing)
 
 ## Technical Stack
 
