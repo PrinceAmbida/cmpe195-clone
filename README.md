@@ -42,9 +42,12 @@ Assuming a Windows operating system, download ZIP of all files in this project.
 
 ## Running the PoC
 After downloading and extracting the ZIP, navigate to the PresentationLayer folder (UnityGame/LevelTemplates/PresentationLayer).
+
 Double-click the InsideTheNetworkAPP.exe file to start the game.
+
 Controls are WASD or arrow keys to move the player (cube) forward, left, backward, and right, respectively.
-Objective of the game is to navigate through the maze, without colliding with walls.
+
+The objective of the game is to navigate through the maze, without hitting the walls, before the time runs out.
 
 ## Demo
 [Link to demo](https://drive.google.com/file/d/1Az5__vvYwxC-V8tP_LjOGEfQhd2dToCO/view?usp=sharing)
@@ -66,7 +69,9 @@ Add minigames for the remaining levels of the OSI model based on their respectiv
 - Man-in-the-Middle-based game for Network layer
 - Spoofing-based game for Data Link layer
 - Sniffing-based game for Physical layer
+
 Finalize complete game with main menu showing IoT devices, which link to variations of minigames.
+
 Complete companion website with AI chatbot.
 
 ## Project Structure
