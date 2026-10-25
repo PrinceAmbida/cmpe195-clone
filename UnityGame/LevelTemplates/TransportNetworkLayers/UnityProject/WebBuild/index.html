@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:,">
+  <title>Inside the Network — Transport &amp; Network</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #0c1220; color: #eaf1fb; font: 15px system-ui, sans-serif; }
+    .shell { max-width: 1200px; margin: auto; }
+    header { display: flex; align-items: center; gap: 8px; min-height: 52px; padding: 8px 12px; flex-wrap: wrap; }
+    header strong { margin-right: auto; font-size: 16px; }
+    button { font: inherit; color: #eaf1fb; background: #1b2a41; border: 1px solid #3d536f; border-radius: 6px; padding: 7px 12px; cursor: pointer; }
+    button:hover, button:focus-visible { background: #2c435f; outline: 2px solid #6bd7f3; outline-offset: 2px; }
+    button[aria-pressed="true"] { background: #125168; border-color: #65d9f2; }
+    .stage { position: relative; width: 100%; aspect-ratio: 12 / 7; background: #101829; }
+    canvas { display: block; width: 100%; height: 100%; background: #101829; }
+    canvas:fullscreen { width: 100vw; height: 100vh; object-fit: contain; background: #000; }
+    #cover { position: absolute; inset: 0; display: grid; place-content: center; text-align: center; gap: 12px; padding: 28px; background: #101829; }
+    #cover[hidden] { display: none; }
+    h1 { margin: 0; font-size: clamp(24px, 4vw, 38px); }
+    p { margin: 0; color: #b3c5dc; line-height: 1.5; max-width: 580px; }
+    #start { background: #155c75; font-weight: 700; padding: 12px 24px; justify-self: center; }
+    #progress { width: min(360px, 80vw); accent-color: #64d7ef; justify-self: center; }
+    #progress[hidden] { display: none; }
+    footer { color: #b3c5dc; font-size: 12px; line-height: 1.5; padding: 8px 12px; }
+    #error { color: #ffb9b9; white-space: pre-wrap; overflow-wrap: anywhere; }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header>
+      <strong>Inside the Network</strong>
+      <button id="transport" type="button" aria-pressed="true">Transport Layer</button>
+      <button id="network" type="button" aria-pressed="false">Network Layer</button>
+      <button id="fullscreen" type="button">Fullscreen</button>
+    </header>
+    <main class="stage">
+      <canvas id="unity-canvas" width="1200" height="700" tabindex="0" aria-label="Inside the Network game"></canvas>
+      <div id="cover">
+        <h1 id="level-title">Transport Layer</h1>
+        <p id="description">Collect 3 TCP segments and 2 UDP datagrams. Avoid DoS attackers and finish before time runs out.</p>
+        <button id="start" type="button">Play Transport Layer</button>
+        <progress id="progress" max="1" value="0" hidden aria-label="Loading game"></progress>
+        <p id="status">Choose a level above, then press Play.</p>
+        <p id="error" role="alert" hidden></p>
+      </div>
+    </main>
+    <footer>WASD: move · Mouse: look · Space: jump · Esc: release mouse · Click the game or press Tab to lock the mouse.<br>Default game resolution: 1200 × 700 · Background music: 15% · Click the game if your browser pauses audio.</footer>
+  </div>
+  <script>
+    'use strict';
+    const canvas = document.getElementById('unity-canvas');
+    const cover = document.getElementById('cover');
+    const start = document.getElementById('start');
+    const progress = document.getElementById('progress');
+    const status = document.getElementById('status');
+    const error = document.getElementById('error');
+    const transport = document.getElementById('transport');
+    const network = document.getElementById('network');
+    // Request pointer lock only after game input. A denied request must not
+    // throw through Unity's frame loop (some embedded browsers reject it).
+    const nativePointerLock = canvas.requestPointerLock?.bind(canvas);
+    let pendingPointerLock = false;
+    let hasGameInput = false;
+    function lockPointerSafely() {
+      pendingPointerLock = false;
+      try {
+        const result = nativePointerLock?.();
+        if (result?.catch) result.catch(reason => console.warn('Mouse lock unavailable:', reason));
+      } catch (reason) {
+        console.warn('Mouse lock unavailable; try opening the game in a desktop browser:', reason);
+      }
+    }
+    if (nativePointerLock) {
+      canvas.requestPointerLock = () => {
+        pendingPointerLock = true;
+        if (hasGameInput && navigator.userActivation?.isActive) lockPointerSafely();
+      };
+      canvas.addEventListener('pointerdown', () => {
+        hasGameInput = true;
+        if (pendingPointerLock) lockPointerSafely();
+      });
+      canvas.addEventListener('keydown', event => {
+        if (event.key === 'Tab') {
+          hasGameInput = true;
+          if (pendingPointerLock) lockPointerSafely();
+        }
+      });
+    }
+    let selected = new URLSearchParams(location.search).get('level') === 'network' ? 'network' : 'transport';
+    let gameInstance = null;
+    let loading = false;
+    const names = { transport: 'Transport Layer', network: 'Network Layer' };
+
+    function selectLevel(level) {
+      selected = level;
+      transport.setAttribute('aria-pressed', String(level === 'transport'));
+      network.setAttribute('aria-pressed', String(level === 'network'));
+      document.getElementById('level-title').textContent = names[level];
+      document.getElementById('description').textContent = level === 'transport'
+        ? 'Collect 3 TCP segments and 2 UDP datagrams. Avoid DoS attackers and finish before time runs out.'
+        : 'Reach Routers 1, 2 and 3 in order, then deliver your packet. Avoid MITM attackers and use router checkpoints.';
+      start.textContent = 'Play ' + names[level];
+      const url = new URL(location.href);
+      url.searchParams.set('level', level);
+      history.replaceState(null, '', url);
+      if (gameInstance) {
+        gameInstance.SendMessage('WebLevelLauncher', level === 'network' ? 'LoadNetwork' : 'LoadTransport');
+        canvas.focus();
+      }
+    }
+
+    transport.addEventListener('click', () => selectLevel('transport'));
+    network.addEventListener('click', () => selectLevel('network'));
+    document.getElementById('fullscreen').addEventListener('click', async () => {
+      if (!gameInstance) return;
+      try { await canvas.requestFullscreen(); canvas.focus(); }
+      catch (reason) { console.warn('Fullscreen unavailable:', reason); }
+    });
+    canvas.addEventListener('contextmenu', event => event.preventDefault());
+
+    function showError(reason) {
+      cover.hidden = false;
+      error.hidden = false;
+      error.textContent = 'The game could not load. Please try a current desktop browser and reload the page.\n' + String(reason);
+      status.textContent = 'Loading failed.';
+      progress.hidden = true;
+      start.hidden = true;
+      console.error(reason);
+    }
+
+    start.addEventListener('click', () => {
+      if (loading || gameInstance) return;
+      loading = true;
+      start.hidden = true;
+      progress.hidden = false;
+      status.textContent = 'Loading ' + names[selected] + '…';
+      const script = document.createElement('script');
+      script.src = '__LOADER_URL__';
+      script.onerror = () => showError('The Unity loader could not be downloaded.');
+      script.onload = () => {
+        createUnityInstance(canvas, {
+          dataUrl: '__DATA_URL__',
+          frameworkUrl: '__FRAMEWORK_URL__',
+          codeUrl: '__CODE_URL__',
+          streamingAssetsUrl: 'StreamingAssets',
+          companyName: 'Inside the Network',
+          productName: 'Transport and Network Layers',
+          productVersion: '1.0',
+          matchWebGLToCanvasSize: false,
+          devicePixelRatio: 1,
+          showBanner: (message, type) => {
+            if (type === 'error') showError(message);
+            else console.warn(message);
+          }
+        }, value => {
+          progress.value = value;
+          status.textContent = 'Loading ' + names[selected] + '… ' + Math.round(value * 100) + '%';
+        }).then(instance => {
+          gameInstance = instance;
+          // Exposed for standard Unity browser controls and troubleshooting.
+          window.unityInstance = instance;
+          cover.hidden = true;
+          if (selected === 'network') instance.SendMessage('WebLevelLauncher', 'LoadNetwork');
+          canvas.focus();
+          console.info('WEB_GAME_READY: 1200 x 700; level=' + selected);
+        }).catch(showError);
+      };
+      document.body.appendChild(script);
+    });
+    selectLevel(selected);
+  </script>
+</body>
+</html>

@@ -102,3 +102,12 @@ Complete companion website with AI chatbot.
 1. SkyQuest, "IOT Smart Homes Market Growth Analysis," 2025. [Link](https://www.skyquestt.com/report/iot-smart-homes-market)
 2. M. Prvan and J. Ožegović, "Methods in Teaching Computer Networks: A Literature Review," *ACM Trans. Comput. Educ.*, vol. 20, no. 3, 2020. [Link](https://dl.acm.org/doi/10.1145/3394963)
 3. I. Miljanovic and T. Bradbury, "Game-based learning in computer science education: a scoping literature review," *Int. J. STEM Educ.*, vol. 10, no. 54, 2023. [Link](https://stemeducationjournal.springeropen.com/articles/10.1186/s40594-023-00447-2)
+
+
+## Transport and Network integration update (Ye Yuan)
+
+The Unity 2022.3.62f3 handoff, independent import packages, and button-wiring instructions are in
+[TransportNetworkLayers](UnityGame/LevelTemplates/TransportNetworkLayers/README.md).
+The three styled result buttons in each saved scene have empty On Click handlers for menu integration.
+The earlier [browser demo](https://yeyuan9.itch.io/inside-the-network-transport-network-layers)
+remains a separate Unity 6 release and does not demonstrate this update.
