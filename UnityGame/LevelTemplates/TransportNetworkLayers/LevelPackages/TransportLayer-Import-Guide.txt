@@ -1,0 +1,30 @@
+TransportLayer - Unity 2022 Team Integration
+
+Editor: Unity 2022.3.62f3 (96770f904ca7)
+Rendering: Universal Render Pipeline 14.0.12. Install/enable this version in the target project before import.
+UI: Unity UI 1.0.0 and TextMesh Pro 3.0.7. Input System: 1.7.0; Active Input Handling: Both.
+
+Import TransportLayer.unitypackage via Assets > Import Package > Custom Package.
+Import all required contents. Shared scripts/materials keep their original GUIDs.
+Open Assets/Scenes/TransportLayer.unity.
+
+Saved scene hierarchy for integration:
+Canvas/FactPanel/LevelNavigation/RestartLevelButton
+Canvas/FactPanel/LevelNavigation/NextLevelButton
+Canvas/FactPanel/LevelNavigation/LevelMenuButton
+
+All three are real, styled Unity UI Buttons already saved in the scene.
+Their On Click lists are empty. They intentionally do not restart or load scenes.
+The integrator can select them in the Hierarchy and assign On Click handlers.
+The FactPanel is hidden at level start and is displayed on success or timeout.
+Restore Time.timeScale to 1 before reloading/leaving a finished level.
+Do not add runtime listeners just to create the buttons; the scene already contains them.
+The previous functional Try Again button has been replaced by these placeholders.
+
+Canvas reference resolution: 1200 x 700. Run Tools > Transport Network Layers >
+Set Game Size to 1200 x 700 once in the target project (packages do not include ProjectSettings).
+Select a 1200 x 700 fixed Game view size for the requested preview dimensions.
+Add this scene to the target project's Build Settings scene list for menu navigation.
+
+Looping music volume: 15%. CC0 credits are in Assets/Resources/LayerMusic/CREDITS.txt.
+The existing itch.io release is the earlier Unity 6 build; this package is the Unity 2022 handoff.

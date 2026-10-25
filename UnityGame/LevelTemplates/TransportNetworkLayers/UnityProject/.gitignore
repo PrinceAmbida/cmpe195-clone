@@ -1,0 +1,12 @@
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+/.vs/
+*.csproj
+*.sln
+*.log
+/Exports/WebGL/
+/Exports/*WebGL.zip
+__pycache__/
