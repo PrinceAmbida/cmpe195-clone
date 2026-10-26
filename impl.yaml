@@ -3,9 +3,8 @@ project_name: "Inside the Network"
 project_type: "hybrid"
 
 impl_claim: >-
-  Transport: collect 3 TCP segments and 2 UDP datagrams while avoiding DoS enemies.
-  Network: visit 3 routers in order and deliver the packet while avoiding MITM enemies.
-  Menu buttons have no actions yet.
+  Inside the Network is an educational game that helps players learn about computer networks and security threats.
+  Players complete challenges in different OSI layers to understand how data travels and how attacks affect it.
 
 languages: ["c#"]
 hardware_required: false
