@@ -1,0 +1,50 @@
+# Draft for Ye's two levels. Run from the repository root.
+project_name: "Inside the Network"
+project_type: "hybrid"
+
+impl_claim: >-
+  Transport: collect 3 TCP segments and 2 UDP datagrams while avoiding DoS enemies.
+  Network: visit 3 routers in order and deliver the packet while avoiding MITM enemies.
+  Menu buttons have no actions yet.
+
+languages: ["c#"]
+hardware_required: false
+
+# Requires Windows, licensed Unity 2022.3.62f3 on PATH, and internet for setup.
+setup:
+  - >-
+    Unity -batchmode -nographics
+    -projectPath "UnityGame/LevelTemplates/TransportNetworkLayers/UnityProject"
+    -quit -logFile -
+
+build:
+  - >-
+    Unity -batchmode -nographics
+    -projectPath "UnityGame/LevelTemplates/TransportNetworkLayers/UnityProject"
+    -executeMethod PrepareTeamIntegration.Prepare
+    -quit -logFile -
+
+test: []
+
+run:
+  - >-
+    Unity -projectPath "UnityGame/LevelTemplates/TransportNetworkLayers/UnityProject"
+
+mock_mode:
+  available: false
+  commands: []
+
+demo:
+  video: "TODO: group demo URL (3-5 minutes)"
+    #Short level videos (older Unity 6 version):
+    -  Transport: https://github.com/SJSU-CMPE-195/group-project-team-45/blob/main/UnityGame/LevelTemplates/TransportNetworkLayers/docs/videos/TransportLayer.mp4
+    -  Network: https://github.com/SJSU-CMPE-195/group-project-team-45/blob/main/UnityGame/LevelTemplates/TransportNetworkLayers/docs/videos/NetworkLayer.mp4
+  screenshots:
+    - "UnityGame/LevelTemplates/TransportNetworkLayers/docs/screenshots/transport-gameplay.png"
+    - "UnityGame/LevelTemplates/TransportNetworkLayers/docs/screenshots/network-routes.png"
+
+notes: >-
+  Unity and a valid license are required; a standard grading container may not run it.
+  Build exports two Unity packages. Run opens the editor.
+  The full command workflow and gameplay have not been tested.
+  Team members still need to add their parts, test commands and the group video URL.
