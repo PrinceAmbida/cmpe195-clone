@@ -11,8 +11,12 @@
     "NextLevelButton",
     "LevelMenuButton"
   ],
-  "button_onclick_handlers": 0,
-  "sha256": "5ccd4a0f84e8c0d0fff70c3b885f2a423ead18fed4507ce3e5c002136c29b54c",
+  "button_onclick_handlers": {
+    "RestartLevelButton": 0,
+    "NextLevelButton": 0,
+    "LevelMenuButton": 0
+  },
+  "sha256": "cf313dfc3e7a27291f051936409590a9d933e79aa77d98e9d3cabfd60a531578",
   "assets": [
     "Assets/BlueMat.mat",
     "Assets/Editor/ApplyLayerGamePlayerSettings.cs",
@@ -88,9 +92,7 @@
     "Assets/TextMesh Pro/Sprites/EmojiOne.png",
     "Packages/com.unity.inputsystem/InputSystem/Actions/InputActionAsset.cs",
     "Packages/com.unity.inputsystem/InputSystem/Actions/InputActionReference.cs",
-    "Packages/com.unity.inputsystem/InputSystem/Editor/AssetImporter/InputActionImporter.cs",
     "Packages/com.unity.inputsystem/InputSystem/Editor/Icons/InputSystemUIInputModule@64.png",
-    "Packages/com.unity.inputsystem/InputSystem/Plugins/PlayerInput/DefaultInputActions.inputactions",
     "Packages/com.unity.inputsystem/InputSystem/Plugins/UI/InputSystemUIInputModule.cs",
     "Packages/com.unity.render-pipelines.core/Runtime/ShaderLibrary/Sampling/Hammersley.cs.hlsl",
     "Packages/com.unity.render-pipelines.core/ShaderLibrary/ACES.hlsl",
@@ -184,5 +186,6 @@
     "Packages/com.unity.ugui/Runtime/UI/Core/Layout/CanvasScaler.cs",
     "Packages/com.unity.ugui/Runtime/UI/Core/Text.cs",
     "Packages/com.unity.ugui/Runtime/UI/Core/VertexModifiers/Outline.cs"
-  ]
+  ],
+  "ui_input_module": "InputSystemUIInputModule"
 }

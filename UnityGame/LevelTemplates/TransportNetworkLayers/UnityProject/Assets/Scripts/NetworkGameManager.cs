@@ -177,7 +177,9 @@ public class NetworkGameManager : MonoBehaviour
     public void RestartLevel()
     {
         Time.timeScale = 1f;
-        int buildIndex = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
-        UnityEngine.SceneManagement.SceneManager.LoadScene(buildIndex);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        string sceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
+        UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
     }
 }

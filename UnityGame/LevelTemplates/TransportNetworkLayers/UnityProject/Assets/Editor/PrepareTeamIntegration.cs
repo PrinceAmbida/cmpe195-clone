@@ -5,6 +5,8 @@ using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem.UI;
 
 public static class PrepareTeamIntegration
 {
@@ -46,6 +48,16 @@ public static class PrepareTeamIntegration
             Text fact = manager != null ? manager.factText : network.factText;
             foreach (Button button in panel.GetComponentsInChildren<Button>(true))
                 UnityEngine.Object.DestroyImmediate(button.gameObject);
+            for (int i = panel.transform.childCount - 1; i >= 0; i--)
+                if (panel.transform.GetChild(i).name == "LevelNavigation")
+                    UnityEngine.Object.DestroyImmediate(panel.transform.GetChild(i).gameObject);
+            EventSystem eventSystem = UnityEngine.Object.FindObjectOfType<EventSystem>();
+            if (eventSystem == null)
+                eventSystem = new GameObject("EventSystem", typeof(EventSystem)).GetComponent<EventSystem>();
+            GameObjectUtility.RemoveMonoBehavioursWithMissingScript(eventSystem.gameObject);
+            foreach (BaseInputModule module in eventSystem.GetComponents<BaseInputModule>())
+                UnityEngine.Object.DestroyImmediate(module);
+            eventSystem.gameObject.AddComponent<InputSystemUIInputModule>().AssignDefaultActions();
             Canvas canvas = panel.GetComponentInParent<Canvas>();
             canvas.sortingOrder = 20;
             CanvasScaler scaler = canvas.GetComponent<CanvasScaler>();
@@ -103,7 +115,7 @@ public static class PrepareTeamIntegration
         Debug.Log("TEAM_INTEGRATION_EXPORTED: " + Application.unityVersion);
     }
 
-    private static void AddButton(Transform parent, string name, string title, float x, Color color)
+    private static Button AddButton(Transform parent, string name, string title, float x, Color color)
     {
         GameObject go = new GameObject(name, typeof(RectTransform), typeof(Image), typeof(Button));
         go.transform.SetParent(parent, false);
@@ -136,7 +148,7 @@ public static class PrepareTeamIntegration
         text.alignment = TextAnchor.MiddleCenter;
         text.text = title;
         text.raycastTarget = false;
-        // Intentionally no event handlers. The menu integrator assigns On Click in the saved scene.
+        return button; // All three buttons intentionally have empty On Click lists.
     }
 
     private static void SetGameViewSize()

@@ -1,5 +1,4 @@
-Unity Editor 2022.3.62f3 (96770f904ca7)
+Unity 2022.3.62f3
 TEAM_INTEGRATION_EXPORTED: 2022.3.62f3
-Exiting batchmode successfully now!
-Editor process exit code: 0
+Editor exit code: 0
 Full gameplay tests: not run.

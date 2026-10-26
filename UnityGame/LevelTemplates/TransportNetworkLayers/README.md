@@ -1,47 +1,23 @@
-# Transport and Network — team integration update
+# Transport and Network Levels
 
-Target Unity Editor: **2022.3.62f3**. URP **14.0.12**, TextMesh Pro **3.0.7**.
-The complete editable project is in `UnityProject`.
-The independent `TransportLayer.unitypackage` and `NetworkLayer.unitypackage` files are in `LevelPackages`.
-Read the corresponding Import Guide in `LevelPackages` before merging into the group menu project.
+1. Use Unity 2022.3.62f3, URP 14.0.12, Input System 1.7.0 and TextMesh Pro 3.0.7.
+2. Open UnityProject, or import the two packages from LevelPackages. Read the import guides first.
+3. Open Assets/Scenes/TransportLayer.unity or NetworkLayer.unity and press Play.
+4. Keep Active Input Handling set to Both. Both scenes use InputSystemUIInputModule with default UI actions.
+5. Game size: 1200 x 700. Music volume: 15%.
+6. RESTART LEVEL, NEXT LEVEL and LEVEL MENU have no actions. Find them under Canvas/FactPanel/LevelNavigation.
+7. Add button actions in the Inspector. Reset Time.timeScale to 1 before loading another scene.
+8. Controls: WASD move, mouse look, Space jump, Esc release mouse, Tab lock mouse.
 
-## Changes
-- Use Unity 2022's Rigidbody.velocity API instead of Unity 6's linearVelocity.
-- Use the matching URP version and re-save materials/scenes in the target editor.
-- Use a 1200 x 700 reference layout and default window/Web canvas size.
-- Save three styled UI Buttons into each result panel, with empty On Click lists:
-  RestartLevelButton, NextLevelButton and LevelMenuButton.
-- Keep button behavior for the menu integrator; no navigation handlers are assigned.
-- Preserve scene gameplay, instructional labels and looping music at 15%.
+Transport: collect 3 TCP segments and 2 UDP datagrams while avoiding DoS enemies.
+Network: reach Routers 1, 2 and 3, then the destination, while avoiding MITM enemies.
 
-## Integration
-Open `UnityProject` in the exact target editor, or import one/both packages into the existing URP 14 project.
-Select `Canvas/FactPanel/LevelNavigation` in each scene to find the buttons (FactPanel starts hidden).
-Wire handlers in the Inspector; reset Time.timeScale before leaving a completed/timed-out level.
-Both packages share original script/material GUIDs. Review existing shared assets before overwriting local changes.
+Both packages were exported with Unity 2022.3.62f3. Full gameplay and import into the team's menu project have not been tested.
+Install Input System in the target project before importing: Unity packages do not install Package Manager dependencies.
+Shared assets keep their original paths and GUIDs. Review shared files before replacing local changes.
+Music credits are in UnityProject/Assets/Resources/LayerMusic/CREDITS.txt.
 
-## Build/export
-In the target editor, use Tools > Transport Network Layers > Prepare Team Integration.
-This saves the two scenes and exports independent packages into the parent directory.
-It can also be called with `-batchmode -projectPath <UnityProject> -executeMethod PrepareTeamIntegration.Prepare -quit`.
-No automated gameplay tests are included or claimed.
+[Online demo](https://yeyuan9.itch.io/inside-the-network-transport-network-layers) · [Screenshots](docs/screenshots/README.md) · [Transport video](docs/videos/TransportLayer.mp4) · [Network video](docs/videos/NetworkLayer.mp4)
 
-## Earlier demonstrations
-The existing [online demo](https://yeyuan9.itch.io/inside-the-network-transport-network-layers)
-and the supplied short recordings show the earlier Unity 6 release, not this integration update.
-The short recordings do not replace the 3–5 minute narrated group demonstration.
-
-
-## Conversion evidence and limits
-Both scenes were saved and both packages were natively exported by Unity **2022.3.62f3**.
-The final editor process exited with code 0; its log reported `TEAM_INTEGRATION_EXPORTED: 2022.3.62f3`.
-The final conversion log contained no C# or shader compilation errors.
-Official TMP 3.0.7 Essential Resources, including shader .cginc dependencies, are included.
-Full gameplay and integration in the teammate's menu project have not been tested.
-No button navigation behavior is implemented, as requested.
-
-## Earlier recordings and screenshots
-- [Transport recording](docs/videos/TransportLayer.mp4)
-- [Network recording](docs/videos/NetworkLayer.mp4)
-- [Screenshots](docs/screenshots/README.md)
-These show the earlier Unity 6 release. They do not show the new placeholder buttons or certify the new handoff.
+The online demo, screenshots and videos show the older Unity 6 version.
+To export again, use Tools > Transport Network Layers > Prepare Team Integration in Unity 2022.3.62f3.
