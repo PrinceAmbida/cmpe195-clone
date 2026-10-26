@@ -31,11 +31,15 @@ Assuming a Windows operating system, download ZIP of all files in this project.
 After downloading and extracting the ZIP, the executable or files of each level will be present in their respective folders.
 Source code (C# scripts) is under UnityGame\SourceCode.
 
-WebGL has playable games for presentation, transport, network, and data link layers.
+WebGL has playable games for application, presentation, session, transport, network, and data link layers.
 
 [Presentation and data link layers](https://padmae.itch.io/inside-the-network)
 
 [Transport and network layers](https://yeyuan9.itch.io/inside-the-network-transport-network-layers)
+
+[Application](https://princeambida.itch.io/application-layer)
+
+[Session](https://princeambida.itch.io/session-layer)
 
 
 ## Testing
