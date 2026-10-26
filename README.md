@@ -46,7 +46,7 @@ WebGL has playable games for application, presentation, session, transport, netw
 For this application, testing mostly consists of ensuring that the game can be successfully completed (such as reaching the destination before the time limit or losing all shields), and ensuring that appropriate error messages will be displayed otherwise. The games that have not completed testing have not been added to this Github.
 
 ## Demo
-[Insert demo video here]
+[Demo video](https://drive.google.com/drive/folders/1CWV_RWbuc_rgF7uR-YurfzZKjzubUgU-?usp=drive_link)
 
 ## Technical Stack
 
