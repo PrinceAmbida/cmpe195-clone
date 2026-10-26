@@ -2,6 +2,8 @@
   "editor": "2022.3.62f3",
   "native_export_exit_code": 0,
   "full_gameplay_tested": false,
-  "final_export_log": "unity2022-integration-final.log",
+  "final_export_log": "unity2022-input-final.log",
+  "ui_input_module": "InputSystemUIInputModule",
+  "all_button_actions_empty": true,
   "web_release_updated": false
 }
