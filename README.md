@@ -17,18 +17,22 @@ Currently, almost all layers have fully functional games. The presentation, netw
 
 ## System Architecture
 
+<img width="813" height="817" alt="image" src="https://github.com/user-attachments/assets/b718edf0-db46-4ce6-83ae-815c366ee5d5" />
 
 
 ## Prerequisites
-The PoC files are restricted to Windows PCs, based on build settings. Source code and WebGL demos can be viewed on any computer.
+The game's executable files are restricted to Windows PCs, based on build settings. Source code and WebGL demos can be viewed on any computer.
 
 ## Installation
 Assuming a Windows operating system, download ZIP of all files in this project.
 
-## Running the PoC
+## Running the Prototype
 After downloading and extracting the ZIP, the executable or files of each level will be present in their respective folders.
 Currently, all running games are on WebGL.
 Source code (C# scripts) is under UnityGame\SourceCode.
+
+## Testing
+For this application, testing mostly consists of ensuring that the game can be successfully completed (such as reaching the destination before the time limit or losing all shields), and ensuring that appropriate error messages will be displayed otherwise. The games that have not completed testing have not been added to this Github.
 
 ## Demo
 WebGL has playable games for presentation, transport, network, and data link layers.
