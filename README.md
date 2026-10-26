@@ -16,8 +16,9 @@ A network-themed 3D platformer game built in Unity (C#) where the player control
 Currently, almost all layers have fully functional games. The presentation, network, transport, and data link layers have games in WebGL for testing. Other level games will be finalized and all layer games will be combined into a single application by Expo.
 
 ## System Architecture
+<img width="691" height="741" alt="image" src="https://github.com/user-attachments/assets/0be23f9d-8525-473b-8756-493a0862cdf9" />
 
-<img width="813" height="817" alt="image" src="https://github.com/user-attachments/assets/b718edf0-db46-4ce6-83ae-815c366ee5d5" />
+
 
 
 ## Prerequisites
@@ -28,16 +29,20 @@ Assuming a Windows operating system, download ZIP of all files in this project.
 
 ## Running the Prototype
 After downloading and extracting the ZIP, the executable or files of each level will be present in their respective folders.
-Currently, all running games are on WebGL.
 Source code (C# scripts) is under UnityGame\SourceCode.
+
+WebGL has playable games for presentation, transport, network, and data link layers.
+
+[Presentation and data link layers](https://padmae.itch.io/inside-the-network)
+
+[Transport and network layers](https://yeyuan9.itch.io/inside-the-network-transport-network-layers)
+
 
 ## Testing
 For this application, testing mostly consists of ensuring that the game can be successfully completed (such as reaching the destination before the time limit or losing all shields), and ensuring that appropriate error messages will be displayed otherwise. The games that have not completed testing have not been added to this Github.
 
 ## Demo
-WebGL has playable games for presentation, transport, network, and data link layers.
-[Presentation and data link layers](https://padmae.itch.io/inside-the-network)
-[Transport and network layers](https://yeyuan9.itch.io/inside-the-network-transport-network-layers)
+[Insert demo video here]
 
 ## Technical Stack
 
