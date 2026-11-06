@@ -1,4 +1,4 @@
-# Draft for Ye's two levels. Run from the repository root.
+# Combined application (UnityGame/IntegratedGame). Run from the repository root.
 project_name: "Inside the Network"
 project_type: "hybrid"
 
@@ -13,21 +13,21 @@ hardware_required: false
 setup:
   - >-
     Unity -batchmode -nographics
-    -projectPath "UnityGame/LevelTemplates/TransportNetworkLayers/UnityProject"
+    -projectPath "UnityGame/IntegratedGame"
     -quit -logFile -
 
 build:
   - >-
     Unity -batchmode -nographics
-    -projectPath "UnityGame/LevelTemplates/TransportNetworkLayers/UnityProject"
-    -executeMethod PrepareTeamIntegration.Prepare
+    -projectPath "UnityGame/IntegratedGame"
+    -executeMethod InsideTheNetwork.IntegrationEditor.IntegrationTools.BuildWindowsAppBatch
     -quit -logFile -
 
 test: []
 
 run:
   - >-
-    Unity -projectPath "UnityGame/LevelTemplates/TransportNetworkLayers/UnityProject"
+    UnityGame/IntegratedGame/Build/InsideTheNetwork.exe
 
 mock_mode:
   available: false
@@ -44,6 +44,6 @@ demo:
 
 notes: >-
   Unity and a valid license are required; a standard grading container may not run it.
-  Build exports two Unity packages. Run opens the editor.
+  Build produces UnityGame/IntegratedGame/Build/InsideTheNetwork.exe (Padma's title screen and level menu + layers 7-2).
   The full command workflow and gameplay have not been tested.
   Team members still need to add their parts, test commands and the group video URL.

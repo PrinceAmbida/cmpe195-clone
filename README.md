@@ -42,6 +42,17 @@ WebGL has playable games for application, presentation, session, transport, netw
 [Session](https://princeambida.itch.io/session-layer)
 
 
+## Combined application (all layers in one app)
+
+`UnityGame/IntegratedGame` is the single Unity 2022.3.62f3 project. It starts on Padma's title screen and level menu,
+and Application, Presentation, Session, Transport, Network and Data Link all play inside it. Physical shows "Coming Soon".
+Padma's menus and levels were recovered from her build with AssetRipper, because her Unity project was never committed.
+
+- **Editor:** Unity Hub > Add project from disk > `UnityGame/IntegratedGame` > open `TitleScene` > Play (Game view 1200 x 700).
+- **Windows app:** Tools > Inside the Network > Build Windows App > run `UnityGame/IntegratedGame/Build/InsideTheNetwork.exe`.
+
+Details, controls, and how to add the Physical layer: [IntegratedGame/README.md](UnityGame/IntegratedGame/README.md).
+
 ## Testing
 For this application, testing mostly consists of ensuring that the game can be successfully completed (such as reaching the destination before the time limit or losing all shields), and ensuring that appropriate error messages will be displayed otherwise. The games that have not completed testing have not been added to this Github.
 
