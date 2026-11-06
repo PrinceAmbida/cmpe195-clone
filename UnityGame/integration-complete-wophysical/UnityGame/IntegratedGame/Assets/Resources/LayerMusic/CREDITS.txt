@@ -1,0 +1,19 @@
+Background Music Credits
+
+Transport Layer
+Track: Technological Messup
+Author: Centurion_of_war
+File: TransportLayer/tecnological_messup_v2.ogg
+Source: https://opengameart.org/content/technological-messup
+License: CC0 1.0 Public Domain Dedication
+
+Network Layer
+Track: Searching
+Author: yd
+File: NetworkLayer/Searching.ogg
+Source: https://opengameart.org/content/searching
+License: CC0 1.0 Public Domain Dedication
+
+License details: https://creativecommons.org/publicdomain/zero/1.0/
+Attribution is optional under CC0; these credits are included for reference.
+Both tracks loop at a default AudioSource volume of 0.15 (15%).
