@@ -6,11 +6,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 //Used for selecting level from main menu
+//Scene names match the scenes in UnityGame/IntegratedGame (the combined project)
+//Physical layer scene is SniffingScene (name used by SniffMovement)
 public class SwitchScenes : MonoBehaviour
 {
 	public void MainMenu()
 	{
-		SceneManager.LoadSceneAsync("MainMenu");
+		//Title screen scene is named TitleScene
+		SceneManager.LoadSceneAsync("TitleScene");
 	}
 	
 	public void LevelMenu()
@@ -20,7 +23,7 @@ public class SwitchScenes : MonoBehaviour
 	
 	public void ApplicationLevel()
 	{
-		SceneManager.LoadSceneAsync("AppScene");
+		SceneManager.LoadSceneAsync("Application_layer");
 	}
 	
     public void PresentationLevel()
@@ -30,17 +33,17 @@ public class SwitchScenes : MonoBehaviour
 	
 	public void SessionLevel()
 	{
-		SceneManager.LoadSceneAsync("SessionScene");
+		SceneManager.LoadSceneAsync("SessionLayer");
 	}
 	
 	public void NetworkLevel()
 	{
-		SceneManager.LoadSceneAsync("NetworkScene");
+		SceneManager.LoadSceneAsync("NetworkLayer");
 	}
 	
 	public void TransportLevel()
 	{
-		SceneManager.LoadSceneAsync("TransportScene");
+		SceneManager.LoadSceneAsync("TransportLayer");
 	}
 	
 	public void LinkLevel()
@@ -50,6 +53,6 @@ public class SwitchScenes : MonoBehaviour
 	
 	public void PhysicalLevel()
 	{
-		SceneManager.LoadSceneAsync("PhysicalScene");
+		SceneManager.LoadSceneAsync("SniffingScene");
 	}
 }
